@@ -32,7 +32,6 @@ Route::group([
     Route::post('login', 'AuthController@login');
 });
 
-
 Route::group(
     [
         'prefix' => 'acampamento'
@@ -41,5 +40,15 @@ Route::group(
         Route::get('/', 'AcampamentosController@index');
         Route::get('/view/{id}', 'AcampamentosController@view');
         Route::post('add', 'AcampamentosController@store');
+    }
+);
+
+Route::group(
+    [
+        'prefix' => 'enderecos',
+    ],
+    function ($router) {
+        Route::get('/opcoesfilter', 'EnderecosController@enderecoFiltroEstado');
+        Route::get('/opcoesfilterMunicipio/{estado}', 'EnderecosController@enderecoFiltroMunicipio');
     }
 );

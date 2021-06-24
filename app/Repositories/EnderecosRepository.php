@@ -15,4 +15,17 @@ class EnderecosRepository extends CrudRepository
     {
         return $this->create($request);
     }
+
+    // Itens para pesquisa
+    public function getEstados()
+    {
+        return $this->model
+            ->select('estado')
+            ->distinct('estado')
+            ->get();
+    }
+
+    public function getMunicipio($estado)
+    {
+    }
 }
