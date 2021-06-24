@@ -11,7 +11,7 @@ class AcampamentosController extends CrudController
 {
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api', ['except' => ['index', 'view']]);
         $this->repository = new AcampamentosRepository();
     }
 
